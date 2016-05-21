@@ -7,7 +7,7 @@ Make sure to leave the format of the text document as it is as modifying it coul
 
 The File Starts Here:
 
-
+***
 Round 1: *The categories written below this line will be part of Round 1*
 
 	Number of Questions (Enter a number such as 10 or 20): 5
@@ -20,6 +20,7 @@ Round 1: *The categories written below this line will be part of Round 1*
 	Cat4
 	Cat5
 	
+	*end*	
 
 Round 2: *The categories written below this line will be part of Round 2*
 
@@ -33,6 +34,8 @@ Round 2: *The categories written below this line will be part of Round 2*
 	Cat9
 	Cat10
 
+	*end*
+
 
 
 Extra Categories: *The Categories below this line will be independent and will be played in a lightning-round fashion *
@@ -41,4 +44,10 @@ CategoryName1, 10, 2
 CategoryName2, 15, 3
 
 
+
+
+
+
+
+***
 
