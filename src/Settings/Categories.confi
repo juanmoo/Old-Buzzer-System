@@ -1,0 +1,44 @@
+Author: Juan Ortiz — May 21, 2016
+
+Hey to whoever is using this!
+
+The text below will change the categories displayed during the match. 
+Make sure to leave the format of the text document as it is as modifying it could cause the program to stop working. Good Luck!
+
+The File Starts Here:
+
+
+Round 1: *The categories written below this line will be part of Round 1*
+
+	Number of Questions (Enter a number such as 10 or 20): 5
+	Points per Question (Enter a number such as 2 or 5): 2
+	
+	List the categories below (Replace the default category names with the names of each of the categories): 
+	Cat1
+	Cat2
+	Cat3
+	Cat4
+	Cat5
+	
+
+Round 2: *The categories written below this line will be part of Round 2*
+
+	Number of Questions (Enter a number such as 10 or 20): 5
+	Points per Question (Enter a number such as 2 or 5): 2
+	
+	List the categories below (Replace the default category names with the names of each of the categories): 
+	Cat6
+	Cat7
+	Cat8
+	Cat9
+	Cat10
+
+
+
+Extra Categories: *The Categories below this line will be independent and will be played in a lightning-round fashion *
+*To enter new category add a line below using the following format: "Category name, number of questions, points per Question" (without the quotation marks)*
+CategoryName1, 10, 2
+CategoryName2, 15, 3
+
+
+
