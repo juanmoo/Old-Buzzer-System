@@ -4,12 +4,41 @@ import java.io.*;
 
 
 public class InfoGetter {
-      public String[] r1Cats, r2Cats, eCats;
-      public int r1Questions, r2Questions;
-      public int[] eCatsQuestions;
-      public int r1Points, r2Points;
-      public int[] eCatsPoints;
-      public static File infoFile;
+      private String[] r1Cats, r2Cats, eCats;
+      private int r1Questions, r2Questions;
+      private int[] eCatsQuestions;
+      private int r1Points, r2Points;
+      private int[] eCatsPoints;
+      private static File infoFile;
+      
+      
+      //Getters
+      public int[] getIntArray(String s) {
+         switch (s) {
+            case "eCQs": return eCatsQuestions;
+            case "eCPts": return eCatsPoints;
+            default: return null;
+         }
+      } 
+      
+      public String[] getCatNames(String s) {
+         switch (s) {
+            case "r1Cats": return r1Cats;
+            case "r2Cats": return r2Cats;
+            case "eCats": return eCats;
+            default: return null;
+         }
+      } 
+      
+      public int getInts(String s){
+         switch (s) {
+           case "r1Qs": return r1Questions;
+           case "r2Qs": return r2Questions;
+           case "r1Pts": return r1Points;
+           case "r2Pts": return r2Points;
+           default: return -1;
+         }
+      }
       
       //Temporary ArralyLists
       private ArrayList<String> r1 = new ArrayList<String>();
@@ -23,11 +52,11 @@ public class InfoGetter {
          getInfo();
       }
       
-      public static void makeFile() {
+      private static void makeFile() {
          infoFile = new File("../Settings/Categories.confi");
       }
       
-      public void getInfo() throws FileNotFoundException {
+      private void getInfo() throws FileNotFoundException {
       
          Scanner reader = new Scanner(infoFile);
          while(!reader.nextLine().trim().equals("***")) {
@@ -134,13 +163,17 @@ public class InfoGetter {
          while (true) {
             line = reader.nextLine().trim();
             if (line.equals("***")) break;
-            String[] cat = line.split(",");
-            for(int i = 0; i<cat.length; i++) {
-               cat[i] = cat[i].trim();
+            if(line.length()>0) {
+               String[] cat = line.split(",");
+               for(int i = 0; i<cat.length; i++) {
+                  cat[i] = cat[i].trim();
+               }
+               
+               eC.add(cat[0]);
+               eCQs.add(Integer.valueOf(cat[1]));
+               eCPts.add(Integer.valueOf(cat[2]));
+               //System.out.println(eC+" "+eCQs+" "+eCPts);
             }
-            eC.add(cat[0]);
-            eCQs.add(Integer.valueOf(cat[1]));
-            eCPts.add(Integer.valueOf(cat[2]));
          }
    
    
@@ -168,6 +201,7 @@ public class InfoGetter {
          for (int i = 0; i<eCPts.size(); i++) {
             eCatsPoints[i] = eCPts.get(i);
          }
+         
          
 
          
