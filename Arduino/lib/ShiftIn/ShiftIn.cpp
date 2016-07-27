@@ -1,4 +1,5 @@
 #include "ShiftIn.h"
+#include <math.h>
 
 byte la;
 byte da;
@@ -41,4 +42,13 @@ int * ShiftIn::read() {
 
 int * ShiftIn::pins() {
   return nums;
+}
+
+
+int ShiftIn :: pinsNum() {
+  int total = 0;
+
+  for (int i = 0; i<8; i++) {
+    total += pins()[i]* (int) (pow(2,7-i)+.3); 
+  }
 }

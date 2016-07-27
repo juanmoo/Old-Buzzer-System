@@ -11,7 +11,7 @@ class ShiftIn {
     int * pins();
     void clk();
     void latch();
-    
+    int pinsNum();    
 };
 
 

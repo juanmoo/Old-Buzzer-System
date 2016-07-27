@@ -2,26 +2,30 @@
 #include <ShiftOut.h>
 #include <Wire.h>
 
-#define slaveAddress 0x05
+#define SLAVE 0x04
 
-void setup()
-{
-  Wire.begin(slaveAddress);
+ShiftIn reader = ShiftIn(2,0,1);
+
+void setup() {
+  Wire.begin(SLAVE);
   Serial.begin(9600);
   while(!Serial);
-  Serial.println("READY");
-  Wire.onRequest(sendData);
-  Wire.onReceive(receiveData);
+  Serial.println("READY TO BEGIN!");
+
+  printBuzzState(); 
 }
 
-void loop()
-{
+void loop() {
+  delay(300);
+  //printBuzzState();
 }
 
-void sendData() {
+void printBuzzState(){
+  reader.read();
+  for (int i = 0; i<8; i++) {
+    Serial.print(reader.pins()[i]);
+    Serial.print(" ");
+  }
 
-}
-
-void receiveData(int byteCount) {
-
+  Serial.println(reader.pinsNum());
 }
