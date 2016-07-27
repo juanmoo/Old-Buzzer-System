@@ -1,31 +1,28 @@
-#include <ShiftIn.h>
-#include <ShiftOut.h>
-#include <Wire.h>
-
-#define SLAVE 0x04
-
-ShiftIn reader = ShiftIn(2,0,1);
+int data = A0;
+int clk = A1;
 
 void setup() {
-  Wire.begin(SLAVE);
+  // put your setup code here, to run once:
   Serial.begin(9600);
-  while(!Serial);
-  Serial.println("READY TO BEGIN!");
+  pinMode(data, OUTPUT);
+  pinMode(clk, OUTPUT);n 
 
-  printBuzzState(); 
+  delay(2000);
+  for( int i = 0; i<5; i++) {
+    digitalWrite(data, HIGH);
+    digitalWrite(clk, HIGH);
+    digitalWrite(clk, LOW);
+    digitalWrite(data, LOW);
+  }
+
+  Serial.println("DONE");
 }
 
 void loop() {
-  delay(300);
-  //printBuzzState();
-}
+  // put your main code here, to run repeatedly:
+  if (Serial.available()>0) {
+    Serial.println(Serial.read());
 
-void printBuzzState(){
-  reader.read();
-  for (int i = 0; i<8; i++) {
-    Serial.print(reader.pins()[i]);
-    Serial.print(" ");
+    Serial.println("End Of Transmission");
   }
-
-  Serial.println(reader.pinsNum());
 }
