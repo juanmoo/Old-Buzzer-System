@@ -1,39 +1,42 @@
 #include <Arduino.h>
 #include <ShiftIn.h>
-#include <ShiftOut.h>
-#include <Wire.h>
 void setup();
 void loop();
-void printBuzzState();
+void readPinState();
 #line 1 "src/sketch.ino"
 //#include <ShiftIn.h>
-//#include <ShiftOut.h>
-//#include <Wire.h>
 
-#define SLAVE 0x04
-
-ShiftIn reader = ShiftIn(2,0,1);
+ShiftIn reader = ShiftIn(7,5,6);
 
 void setup() {
-  Wire.begin(SLAVE);
+  // put your setup code here, to run once:
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
   Serial.begin(9600);
   while(!Serial);
-  Serial.println("READY TO BEGIN!");
-
-  printBuzzState(); 
+  Serial.println("READY!\n\n");
+  delay(2000);
 }
 
 void loop() {
-  delay(300);
-  //printBuzzState();
+  // put your main code here, to run repeatedly:
+  //delay(1);
+  readPinState();
 }
 
-void printBuzzState(){
-  reader.read();
+void readPinState() {
+  int * h = reader.read();
+  Serial.print("[ ");
   for (int i = 0; i<8; i++) {
-    Serial.print(reader.pins()[i]);
-    Serial.print(" ");
+    Serial.print(h[i]);
+    if (i<7) {
+      Serial.print(", ");
+    }
+    else {
+      Serial.print(" ]");
+    }
   }
+  Serial.println();
 
-  Serial.println(reader.pinsNum());
 }
+

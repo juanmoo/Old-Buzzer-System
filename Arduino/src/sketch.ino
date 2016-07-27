@@ -1,9 +1,11 @@
 #include <ShiftIn.h>
 
-ShiftIn reader = ShiftIn(A0,A2j,A1);
+ShiftIn reader = ShiftIn(7,5,6);
 
 void setup() {
   // put your setup code here, to run once:
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
   Serial.begin(9600);
   while(!Serial);
   Serial.println("READY!\n\n");
@@ -12,7 +14,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(100);
+  //delay(1);
   readPinState();
 }
 
