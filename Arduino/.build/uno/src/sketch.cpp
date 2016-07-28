@@ -1,26 +1,49 @@
 #include <Arduino.h>
 #include <ShiftIn.h>
+#include <ShiftOut.h>
+#include <Wire.h>
 void setup();
 void loop();
 void readPinState();
 #line 1 "src/sketch.ino"
 //#include <ShiftIn.h>
+//#include <ShiftOut.h>
+//#include <Wire.h>
 
+#define slave 0x04
+
+ShiftOut shifter = ShiftOut(A2,A0,A1);
 ShiftIn reader = ShiftIn(7,5,6);
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
+  Wire.begin(slave);
   Serial.begin(9600);
   while(!Serial);
-  Serial.println("READY!\n\n");
-  delay(2000);
+  Serial.println("READY TO WORK!\n");
+  
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //delay(1);
+  delay(100);
+  
+  if (Serial.available()>0) {
+
+    char l = Serial.read();
+
+    if(l=='l') {
+      shifter.latch();
+    }
+
+    else if(l == 'c') {
+      shifter.clock();
+    }
+
+    else if(l == 'd') {
+      shifter.data(); 
+    }
+  }
+
   readPinState();
 }
 
@@ -37,6 +60,5 @@ void readPinState() {
     }
   }
   Serial.println();
-
 }
 

@@ -1,4 +1,4 @@
-.build/uno/src/sketch.d .build/uno/src/sketch.o: .build/uno/src/sketch.cpp \
+.build/uno/ShiftOut/ShiftOut.d .build/uno/ShiftOut/ShiftOut.o: lib/ShiftOut/ShiftOut.cpp lib/ShiftOut/ShiftOut.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \
@@ -8,7 +8,4 @@
  /usr/share/arduino/hardware/arduino/cores/arduino/Print.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/Printable.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
- /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h \
- lib/ShiftIn/ShiftIn.h lib/ShiftOut/ShiftOut.h \
- /usr/share/arduino/hardware/arduino/cores/arduino/Wire/src/Wire.h \
- /usr/share/arduino/hardware/arduino/cores/arduino/Stream.h
+ /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h

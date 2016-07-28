@@ -1,10 +1,14 @@
 #include <ShiftIn.h>
 #include <ShiftOut.h>
+#include <Wire.h>
+
+#define slave 0x04
 
 ShiftOut shifter = ShiftOut(A2,A0,A1);
 ShiftIn reader = ShiftIn(7,5,6);
 
 void setup() {
+  Wire.begin(slave);
   Serial.begin(9600);
   while(!Serial);
   Serial.println("READY TO WORK!\n");

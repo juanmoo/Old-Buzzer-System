@@ -9,4 +9,6 @@
  /usr/share/arduino/hardware/arduino/cores/arduino/Printable.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
  /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h \
- lib/ShiftIn/ShiftIn.h
+ lib/ShiftIn/ShiftIn.h lib/ShiftOut/ShiftOut.h \
+ /usr/share/arduino/hardware/arduino/cores/arduino/Wire/src/Wire.h \
+ /usr/share/arduino/hardware/arduino/cores/arduino/Stream.h
