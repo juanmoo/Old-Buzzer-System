@@ -74,6 +74,8 @@ void sendData() {
   else if (rs == 12) { //Send Button State
     sendButtonState();
   }
+
+  rs = -1;
 }
 
 
