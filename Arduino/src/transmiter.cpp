@@ -56,6 +56,10 @@ void receiveData( int byteCount ) {
     }
   }
 
+  Serial.print("Command Received: ");
+  Serial.print(cmd);
+  Serial.println();
+
   if (cmd<=10) { //Read Data Commands
     readState(cmd);
   }
