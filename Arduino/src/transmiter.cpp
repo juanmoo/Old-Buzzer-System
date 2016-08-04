@@ -97,7 +97,7 @@ void writeState(int cmd) {
 
 void readState(int cmd) {
   if (cmd == 0) {
-    updateBuzzState();
+    sendBuzzState();
   }
 }
 
