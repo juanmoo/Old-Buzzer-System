@@ -9,4 +9,7 @@ while (True):
     time.sleep(.5)
     #bus.write_byte(arduino_address,0)
     data = bus.read_i2c_block_data(arduino_address,0)
+    data2 = []
+    for x in range(8):
+        data2.append(data[x])
     print data
