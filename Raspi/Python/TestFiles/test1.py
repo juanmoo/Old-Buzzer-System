@@ -12,4 +12,4 @@ while (True):
     data2 = []
     for x in range(8):
         data2.append(data[x])
-    print data
+    print data2
