@@ -31,7 +31,7 @@ void ShiftIn::latch() {
 }
 
 int * ShiftIn::read() {
-  
+
   latch();
   for(int i  = 0; i<9; i++) {
     nums[i] = digitalRead(da);
@@ -45,10 +45,12 @@ int * ShiftIn::pins() {
 }
 
 
-int ShiftIn :: pinsNum() {
+/*int ShiftIn :: pinsNum() {
   int total = 0;
 
   for (int i = 0; i<8; i++) {
-    total += pins()[i]* (int) (pow(2,7-i)+.3); 
+    total += pins()[i]* (int) (pow(2,7-i)+.3);
   }
-}
+
+  return total;
+}*/
