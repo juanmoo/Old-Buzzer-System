@@ -67,10 +67,12 @@ void receiveData( int byteCount ) {
   Serial.println("\n");
 
   if (cmd<=10) { //Read Data Commands
+    Serial.println("A read command was entered.");
     readState(cmd);
   }
 
   else {  //Write Data Commands
+    Serial.println("A writee command was entered.");
     writeState(cmd);
   }
 
