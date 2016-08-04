@@ -61,7 +61,7 @@ void receiveData( int byteCount ) {
   Serial.println();
 
   for (int i = 0; i<8; i++) {
-    Serial.print(i);
+    Serial.print(data[i]);
     Serial.print(", ");
   }
   Serial.println("\n");
