@@ -4,7 +4,7 @@
 #include <inttypes.h>
 #include <Wire.h>
 
-#define slave_address 0x04
+#define slave_address 0x10
 
 /*
 * To use this class the following functions need to be implemented:
