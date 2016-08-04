@@ -60,11 +60,6 @@ void receiveData( int byteCount ) {
   Serial.print(cmd);
   Serial.println();
 
-  for (int i = 0; i<8; i++) {
-    Serial.print(data[i]);
-    Serial.print(", ");
-  }
-  Serial.println("\n");
 
   if (cmd<=10) { //Read Data Commands
     Serial.println("A read command was entered.");
@@ -106,6 +101,12 @@ void sendBuzzState() {
   uint8_t toSend [8];
   for (int i = 0; i<8; i++) {
     toSend[i] = h[i];
+  }
+
+  Serial.print("{ ");
+  for (int i = 0; i<8; i++) {
+    Serial.print(toSend[i]);
+    Serial.print(i<7?", ":" }");
   }
 
   Wire.write(toSend,8);
