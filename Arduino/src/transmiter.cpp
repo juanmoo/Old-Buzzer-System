@@ -98,12 +98,19 @@ void readState(int cmd) {
 
 void sendBuzzState() {
   int * h = reader.read();
+
+  Serial.print("\n{ ");
+  for (int i = 0; i<8; i++) {
+    Serial.print(h[i]);
+    Serial.print(i<7?", ":" }");
+  }
+
   uint8_t toSend [8];
   for (int i = 0; i<8; i++) {
     toSend[i] = h[i];
   }
 
-  Serial.print("{ ");
+  Serial.print("\n{ ");
   for (int i = 0; i<8; i++) {
     Serial.print(toSend[i]);
     Serial.print(i<7?", ":" }");
