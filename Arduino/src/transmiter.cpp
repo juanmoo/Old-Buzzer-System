@@ -26,6 +26,15 @@
 //Main Program Order
 void setup () {
   //Setup Buttons
+  reader.read();
+
+  for (int i = 0; i<8; i++) {
+    Serial.print(reader.pins()[i]);
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  
     for (int i = 5; i<=12; i++) {
       pinMode(i, INPUT);
     }
