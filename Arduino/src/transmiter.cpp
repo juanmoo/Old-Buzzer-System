@@ -60,6 +60,12 @@ void receiveData( int byteCount ) {
   Serial.print(cmd);
   Serial.println();
 
+  for (int i = 0; i<8; i++) {
+    Serial.print(i);
+    Serial.print(", ");
+  }
+  Serial.println("\n");
+
   if (cmd<=10) { //Read Data Commands
     readState(cmd);
   }
