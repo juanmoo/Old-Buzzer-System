@@ -72,7 +72,7 @@ void receiveData( int byteCount ) {
   }
 
   else {  //Write Data Commands
-    Serial.println("A writee command was entered.");
+    Serial.println("A write command was entered.");
     writeState(cmd);
   }
 
