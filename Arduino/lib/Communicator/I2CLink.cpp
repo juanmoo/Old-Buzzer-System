@@ -10,6 +10,7 @@ extern "C" {
 uint8_t * (*I2CLink::user_getBuzzState)(void);
 uint8_t * (*I2CLink::user_getButtonState)(void);
 void (*I2CLink::user_updateLightState)(int *);
+void (*I2CLink::user_updateTime)(uint16_t);
 int I2CLink::rs;
 
 // Constructors //////////////////////////////////
@@ -37,6 +38,11 @@ I2CLink::I2CLink()
     void I2CLink::onUpdateLightStateRequest(void (*function)(int *))
     {
       user_updateLightState = function;
+    }
+
+    void I2CLink::onUpdateTimeRequest (void (*function)(uint16_t))
+    {
+       user_updateTime = function;
     }
 
 
@@ -99,6 +105,21 @@ I2CLink::I2CLink()
             lightState[i] = data[i];
         }
         user_updateLightState(&lightState[0]);
+      }
+
+      else if (cmd == 12) //write the new time to display to the 7-seg display.
+      {
+        /*
+        * The array 'data' will have two usable elements. The element with index
+        * of zero ( data[0] ) will be the number of minutes and the elemenet with
+        * index of one ( data[1] ) will be the number of seconds.
+        */
+
+        uint16_t minutes = data[0];
+        uint16_t seconds = data[1];
+
+        uint16_t totalTime_s = 60 * minutes + seconds;
+        user_updateTime(totalTime_s);
       }
 
     }

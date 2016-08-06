@@ -2,8 +2,11 @@
 #include <I2CLink.h>
 #include <ShiftIn.h>
 #include <ShiftOut.h>
+#include <Adafruit_LEDBackpack.h>
+#include <Adafruit_GFX.h>
 
 //Instantinate Global Objects
+Adafruit_7segment timeDisplay = Adafruit_7segment();
 I2CLink linker = I2CLink();
 ShiftIn reader = ShiftIn(4,2,3); //ShiftIn(data pin, clock pin, latch pin)
 ShiftOut shifter = ShiftOut(16,14,15); //ShiftOut(data pin, clock pin, latch pin)
@@ -40,7 +43,7 @@ void setup()
 
 void loop()
 {
-  delay(100);
+  delay(10);
 }
 
 uint8_t * sendBuzzState ()
@@ -66,4 +69,16 @@ uint8_t * sendButtonState ()
 void updateLightState (int * lightState)
 {
   shifter.write(lightState);
+}
+
+// 7-Segment Display Functions /////////////
+
+void displayNumber (uint16_t time_s)
+{
+  timeDisplay.writeDigitNum(0,time_s/60/10,false);
+  timeDisplay.writeDigitNum(1, (time_s/60)%10, false);
+  timeDisplay.drawColon(true);
+  timeDisplay.writeDigitNum(3, (time_s%60)/10, false);
+  timeDisplay.writeDigitNum(4, (time_s%60)%10, false);
+  timeDisplay.writeDisplay();
 }

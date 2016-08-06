@@ -11,6 +11,7 @@
 *   1. onBuzzStateRequest(function) //Sets behavior to get the state of the buzzers.
 *   2. onButtonStateRequest(function) //Sets behavior to get the state of the buttons.
 *   3. onUpdateLightStateRequest(function) //Sets the method to update the buzzer lights.
+*   4. onUpdateTimeRequest(function) //Sets time to be displayed on timer.
 */
 
 class I2CLink
@@ -23,6 +24,7 @@ class I2CLink
     static uint8_t * (*user_getBuzzState)(void);
     static uint8_t * (*user_getButtonState)(void);
     static void (*user_updateLightState)(int *);
+    static void (*user_updateTime)(uint16_t);
 
     //Internal functions
     static void receiveData (int);
@@ -38,6 +40,7 @@ class I2CLink
     void onBuzzStateRequest( uint8_t * (*)(void) );
     void onButtonStateRequest( uint8_t * (*)(void) );
     void onUpdateLightStateRequest( void (*) (int *) );
+    void onUpdateTimeRequest( void (*) (uint16_t));
 
 };
 
