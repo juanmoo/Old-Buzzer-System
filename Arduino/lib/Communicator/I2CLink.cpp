@@ -4,6 +4,7 @@ extern "C" {
 }
 
 #include "I2CLink.h"
+#include <Arduino.h>
 
 // Initialize Class Variables ///////////////////
 
@@ -119,7 +120,9 @@ I2CLink::I2CLink()
         uint16_t seconds = data[1];
 
         uint16_t totalTime_s = 60 * minutes + seconds;
-        user_updateTime(totalTime_s);
+        //Serial.begin(9600);
+        Serial.println("An attempt was made.");
+        //user_updateTime(totalTime_s);
       }
 
     }
