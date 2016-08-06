@@ -15,6 +15,7 @@ ShiftOut shifter = ShiftOut(16,14,15); //ShiftOut(data pin, clock pin, latch pin
 uint8_t * sendBuzzState (void);
 uint8_t * sendButtonState (void);
 void updateLightState (int *);
+void displayNumber(uint16_t);
 
 //Initializing global Variables
 uint8_t buzzState [8];
@@ -39,6 +40,7 @@ void setup()
     while (!Serial);
     delay(100);
     Serial.println("READY TO BEGIN!\n\n");
+    displayNumber(7);
 }
 
 void loop()
