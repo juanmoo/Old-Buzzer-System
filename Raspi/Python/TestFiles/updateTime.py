@@ -10,8 +10,8 @@ t = 60*10;
 
 while time >= 0:
     data = []
-    data.append(t%60)
     data.append(t/60)
+    data.append(t%60)
     t -= 1;
     bus.write_i2c_block_data(slave_address,12,data)
     time.sleep(1)
