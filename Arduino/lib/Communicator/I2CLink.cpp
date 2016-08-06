@@ -121,7 +121,7 @@ I2CLink::I2CLink()
 
         uint16_t totalTime_s = 60 * minutes + seconds;
         Serial.println("An attempt was made.");
-        Serial.println(totalTime_s);
+        Serial.print(totalTime_s);
         Serial.print(" seconds remain.\n");
         //user_updateTime(totalTime_s);
       }
