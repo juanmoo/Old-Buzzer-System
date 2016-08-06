@@ -23,6 +23,8 @@ uint8_t buttonState [8];
 
 void setup()
 {
+    #ifndef thing
+    #define thing
     //Setup I2C linker
     linker.onButtonStateRequest(sendButtonState);
     linker.onBuzzStateRequest(sendBuzzState);
@@ -39,6 +41,7 @@ void setup()
     while (!Serial);
     delay(100);
     Serial.println("READY TO BEGIN!\n\n");
+    #endif
 }
 
 void loop()
