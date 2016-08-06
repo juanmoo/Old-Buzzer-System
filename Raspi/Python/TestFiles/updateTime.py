@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 import time
-import smbubs
+import smbus
 
 bus = smbus.SMBus(1)
 slave_address = 0x10
