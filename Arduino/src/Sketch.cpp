@@ -78,6 +78,7 @@ void updateLightState (int * lightState)
 void displayNumber (uint16_t time_s)
 {
   // Set address of 7-segment
+  Wire.endTransmission();
   timeDisplay.begin(0x70);
 
   timeDisplay.writeDigitNum(0,time_s/60/10,false);
