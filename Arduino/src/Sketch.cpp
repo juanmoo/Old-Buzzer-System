@@ -29,9 +29,6 @@ void setup()
     linker.onBuzzStateRequest(sendBuzzState);
     linker.onUpdateLightStateRequest(updateLightState);
 
-    // Set address of 7-segment
-    timeDisplay.begin(0x70);
-
     //Set Pinmode for button Pins
     for (int i = 5; i<=12; i++)
     {
@@ -43,7 +40,6 @@ void setup()
     while (!Serial);
     delay(100);
     Serial.println("READY TO BEGIN!\n\n");
-    displayNumber(7);
 }
 
 void loop()
@@ -80,10 +76,16 @@ void updateLightState (int * lightState)
 
 void displayNumber (uint16_t time_s)
 {
+  // Set address of 7-segment
+  timeDisplay.begin(0x70);
+
   timeDisplay.writeDigitNum(0,time_s/60/10,false);
   timeDisplay.writeDigitNum(1, (time_s/60)%10, false);
   timeDisplay.drawColon(true);
   timeDisplay.writeDigitNum(3, (time_s%60)/10, false);
   timeDisplay.writeDigitNum(4, (time_s%60)%10, false);
   timeDisplay.writeDisplay();
+
+  // Restart linker
+  linker.begin();
 }

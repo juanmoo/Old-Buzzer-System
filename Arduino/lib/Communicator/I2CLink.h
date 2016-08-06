@@ -36,6 +36,7 @@ class I2CLink
 
   public:
     I2CLink();
+    void begin();
 
     void onBuzzStateRequest( uint8_t * (*)(void) );
     void onButtonStateRequest( uint8_t * (*)(void) );

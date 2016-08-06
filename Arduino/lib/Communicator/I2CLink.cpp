@@ -18,12 +18,20 @@ int I2CLink::rs;
 
 I2CLink::I2CLink()
 {
-  Wire.begin(slave_address);
   Wire.onReceive(receiveData);
   Wire.onRequest(sendData);
+  begin();
 }
 
+
 // Public Methods ///////////////////////////////
+
+    // Begin and Stop Methods
+    void I2CLink::begin ()
+    {
+      Wire.begin(slave_address);
+    }
+
 
     //Setters for user-defined functions
     void I2CLink::onBuzzStateRequest( uint8_t * (*function) (void))
