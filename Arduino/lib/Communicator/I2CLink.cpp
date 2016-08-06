@@ -131,7 +131,7 @@ I2CLink::I2CLink()
         Serial.println("An attempt was made.");
         Serial.print(totalTime_s);
         Serial.print(" seconds remain.\n");
-        user_updateTime(totalTime_s);
+        //user_updateTime(totalTime_s);
       }
 
     }

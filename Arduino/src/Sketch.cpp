@@ -25,6 +25,7 @@ uint8_t buttonState [8];
 void setup()
 {
     //Setup I2C linker
+    linker.begin();
     linker.onButtonStateRequest(sendButtonState);
     linker.onBuzzStateRequest(sendBuzzState);
     linker.onUpdateLightStateRequest(updateLightState);
