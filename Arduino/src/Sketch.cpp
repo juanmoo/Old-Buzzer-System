@@ -29,6 +29,9 @@ void setup()
     linker.onBuzzStateRequest(sendBuzzState);
     linker.onUpdateLightStateRequest(updateLightState);
 
+    // Set address of 7-segment
+    timeDisplay.begin(0x70);
+
     //Set Pinmode for button Pins
     for (int i = 5; i<=12; i++)
     {
