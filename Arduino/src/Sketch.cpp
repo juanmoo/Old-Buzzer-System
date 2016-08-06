@@ -75,6 +75,7 @@ void updateLightState (int * lightState)
 
 void displayNumber (uint16_t time_s)
 {
+  Serial.println("Attempt to update time was made.");
   timeDisplay.writeDigitNum(0,time_s/60/10,false);
   timeDisplay.writeDigitNum(1, (time_s/60)%10, false);
   timeDisplay.drawColon(true);
